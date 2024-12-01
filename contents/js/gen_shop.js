@@ -12,7 +12,7 @@ function sort(){
     }
 }
 
-function comparator() { 
+function comparator(a, b) { 
     const nameA = a.title.toUpperCase(); // ignore upper and lowercase
     const nameB = b.title.toUpperCase(); // ignore upper and lowercase
     if (nameA < nameB) {
@@ -57,24 +57,21 @@ async function sortByTitle() {
 }
 
 async function sortByPrice() {
-
-    let responce = await fetch("shop.json")
+    let responce = await fetch("./data/shop.json")
 
     let content = await responce.text()
     console.log(content)
     content = JSON.parse(content)
     content = content.splice(0, 9)
-    //content.sort()
     console.log(content)
     let key
-    /*for (key in content) {
+    for (key in content) {
         console.log(content[key].id, content[key].title)
         console.log(content[key])
-    }*/
+    }
     content_price=content.sort((a, b) => a.price - b.price);
 
     let node_for_insert = document.getElementById("node_for_insert")
-    //node_for_insert.innerHTML='';
     for (key in content_price) {
                 node_for_insert.innerHTML += `
                 <li style="width: 310px" class="d-flex flex-column m-1 p-1 border bg-body">
