@@ -47,7 +47,7 @@ async function sortByTitle() {
         <p class="card-text">${content[key].description}.</p>
         <p class="card-text"> Цена ${content[key].price} р.</p>
         <input type="hidden" name= "vendor_code" value=${content[key].vendor_code}>
-        <p class="card-text" >Заказать <input class="w-25" type="number" name="amount" value="0"></p>
+        <p class="card-text" >Заказать <input class="w-25" min="0" type="number" name="amount" value="0"></p>
         </li>`
     }
 }
@@ -75,7 +75,7 @@ async function sortByPrice() {
         <p class="card-text">${content[key].description}.</p>
         <p class="card-text"> Цена ${content[key].price} р.</p>
         <input type="hidden" name= "vendor_code" value=${content[key].vendor_code}>
-        <p class="card-text" >Заказать <input class="w-25" type="number" name="amount" value="0"></p>
+        <p class="card-text" >Заказать <input class="w-25" type="number" min="0" name="amount" value="0"></p>
         </li>`
     }
 }
