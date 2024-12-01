@@ -12,19 +12,6 @@ function sort(){
     }
 }
 
-function comparator(a, b) { 
-    const nameA = a.title.toUpperCase(); // ignore upper and lowercase
-    const nameB = b.title.toUpperCase(); // ignore upper and lowercase
-    if (nameA < nameB) {
-        return -1;
-    }
-    if (nameA > nameB) {
-        return 1;
-    }
-    // Если имена одинаковые
-    return 0;
-}
-
 async function sortByTitle() {
     let responce = await fetch("./data/shop.json")
     let content = await responce.text()
@@ -39,7 +26,18 @@ async function sortByTitle() {
         console.log(content[key])
     }
 
-    content_title=content.sort((a, b) => comparator(a, b));
+    content_title=content.sort((a, b) => { 
+        const nameA = a.title.toUpperCase(); // ignore upper and lowercase
+        const nameB = b.title.toUpperCase(); // ignore upper and lowercase
+        if (nameA < nameB) {
+            return -1;
+        }
+        if (nameA > nameB) {
+            return 1;
+        }
+        // Если имена одинаковые
+        return 0;
+    });
     
     let node_for_insert = document.getElementById("node_for_insert")
     for (key in content) {
