@@ -63,17 +63,11 @@
         </header>
 
         <div class="card">
-            <div class="card-body">
-                <ul class="nav nav-tabs">
-                    <li class="nav-item"><a class="nav-link " href="./index.html">Первая страница</a>
-                    </li>
-                    <li class="nav-item"><a class="nav-link active" href="./shop.html">Магазин</a>
-                    </li>
-                </ul>
-            </div>
             <!--начало уникального содержания страницы-->
             <div class="card-body">
                 <h5 class='card-title text-center'>Магазин</h5>
+                <input type="radio" id="price" name="sort" onchange="sort()"> price </input>
+                <input type="radio" id="title" name="sort" checked onchange="sort()"> title </input>
                 <form action="https://www.bing.com/search?" id="UserEnter" name="UserEnter" target="_blank">
                     <input name="q" type="hidden" value="search">
                     <ul class="d-flex flex-row flex-wrap justify-content-around bg-light" id="node_for_insert">
@@ -83,11 +77,6 @@
                 </form>
             </div>
             <!--окончание уникального содержания страницы-->
-        </div>
-        <div class="card">
-            <div class="card-body">
-                Footer
-            </div>
         </div>
 
     </div>
