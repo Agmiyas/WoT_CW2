@@ -75,9 +75,25 @@ async function sortByPrice() {
         <p class="card-text">${content[key].description}.</p>
         <p class="card-text"> Цена ${content[key].price} р.</p>
         <input type="hidden" name= "vendor_code" value=${content[key].vendor_code}>
-        <p class="card-text" >Заказать <input class="w-25" type="number" min="0" name="amount" value="0"></p>
+        <p class="card-text" >Заказать <input class="w-25" type="number" min="0" max="100" name="amount" value="0"></p>
         </li>`
     }
 }
+
+
+const inputs = document.querySelectorAll('input[type=number]');
+Array.from(inputs).forEach(input => {
+    const min = + input.min;
+    const max = + input.max;
+    input.addEventListener('input', (e) => {
+        const value = + input.value;
+        if (value > max) {
+            input.value = max
+        }
+        else if (value < min) {
+            input.value = min
+        }
+    })
+});
 
 sort()
